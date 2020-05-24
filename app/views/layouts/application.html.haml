@@ -2,11 +2,55 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:content => "width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0", :name => "viewport"}/
     %title Instagram
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    -# = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+
+    -# Navigation Bar
+    %nav.navbar.navbar-light.bg-light.d-flex
+      .container
+        .logo
+          %a{href:"#", class:'navbar-brand'}
+            = fa_stacked_icon "camera inverse", base: 'circle'
+            Instagram
+        .m-auto.d-none.d-sm-block
+          %form{class:'form-inline search-form'}
+            %input{type:'search', class:'form-control mr-sm-2', placeholder:'@search', 'aria-label':'Search'}
+        .user-section
+          %a
+            %i.fa.fa-compass
+          %a
+            %i.fa.fa-heart
+          -if user_signed_in?
+            = link_to user_path(current_user) do
+              -# destroy_user_session_path, method: 'delete' do
+              %i.fa.fa-user
+          -else
+            = link_to new_user_session_path do
+              %i.fa.fa-sign-in
+
+    -# Main Content
+    %main
+      = yield
+
+    -# Footer
+    %footer.container.footer
+      %nav.navbar.d-flex
+        %ul
+          %li ABOUT US
+          %li SUPPORT
+          %li PRESS
+          %li API
+          %li JOBS
+          %li PRIVACY
+          %li TERMS
+          %li DIRECTORY
+          %li PROFILES
+          %li HASHTAGS
+          %li LANGUAGES
+        %P © 2020 INSTAGRAM

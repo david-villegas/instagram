@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# README
 
-Things you may want to cover:
+Creación de un Clone de la aplicación Instagram en Rails 6.0
 
-* Ruby version
+* Base de Datos: Postgres 10
 
-* System dependencies
+* Bootstrap 4.5.0
 
-* Configuration
+* Devise >= 4.6.0
 
-* Database creation
+* font-awesome-rails
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
