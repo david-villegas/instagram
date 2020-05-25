@@ -26,7 +26,6 @@
 .footer{
   font-size: 12px;
   padding-top: 30px;
-  text-align: center;
   ul{
     padding-left: 0;
     > li{
@@ -39,6 +38,13 @@
     color: #999;
   }
   .navbar{
+    padding: 0px !important;
     border-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .footer{
+    text-align: center;
   }
 }
