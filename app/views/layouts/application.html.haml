@@ -36,6 +36,8 @@
 
     -# Main Content
     %main
+      #notice= render 'alerts/notice' if (flash[:notice])
+      #error= render 'alerts/alert' if (flash[:alert])
       = yield
 
     -# Footer

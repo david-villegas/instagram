@@ -231,15 +231,7 @@
   }
 }
 
-@media (min-width: 577px) and (max-width: 1199px) {
-  .form-edit-user{
-    .col-image-profile{
-      text-align: right;
-    }
-  }
-}
-
-@media screen and (min-width: 1200px) {
+@media (min-width: 577px) {
   .form-edit-user{
     .col-image-profile{
       text-align: right;

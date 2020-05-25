@@ -6,29 +6,29 @@
           = image_tag 'https://scontent-mia3-2.cdninstagram.com/v/t51.2885-19/s150x150/13413365_703992793072121_1761280401_a.jpg?_nc_ht=scontent-mia3-2.cdninstagram.com&_nc_ohc=TBeErqXBu-4AX-37A0B&oh=204a1884c9958b98f7d69823b4ff59de&oe=5EF241BB', class: ''
       .col-sm-8.col-md-8.basic-info
         .row
-          %h2.username.d-none.d-sm-block dvillegas7
+          %h2.username.d-none.d-sm-block=current_user.username
           %a{href:edit_user_path(current_user), class: 'edit-profile d-none d-sm-block'}
             %button Editar Profile
         .col.d-block.d-sm-none
-          %h2.username dvillegas7
+          %h2.username=current_user.username
         .col.d-block.d-sm-none.mb-3
           %a{href:edit_user_path(current_user), class: 'edit-profile'}
             %button Edit Profile
         %ul.posts.d-none.d-sm-block.d-sm-none.d-md-block
           %li
             %span 64
-            Posts
+            Publicaciones
           %li
             %span 429
-            Followers
+            Seguidores
           %li
             %span 956
-            Following
-        %h2.name.d-none.d-sm-block David Villegas
-        %a{href:"localhost:3000"}
+            Seguidos
+        %h2.name.d-none.d-sm-block=current_user.name
+        =link_to current_user.website, current_user.website, class: 'website d-none d-sm-block'
 
     -# Se muestra al pasar al tamaño de un dispositivo celular
-    .row.d-block.d-sm-none.followers_count
+    .row.d-block.d-sm-none
       %ul.center-ul
         %li
           %span
