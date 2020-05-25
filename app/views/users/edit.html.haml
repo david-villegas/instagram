@@ -1,0 +1,66 @@
+.container
+  .user-edit-page
+    .actions.d-none.d-sm-block
+      %nav{class:'flex-column nav-pills', role: 'tablist', 'aria-orientation': 'vertical'}
+        %a{href:"#v-pills-home", class:'nav-link active', 'data-toggle': 'pill', role: 'tab', 'aria-selected': 'true'} Editar Perfil
+        %a{class:'nav-link', 'data-toggle': 'pill'} Cambiar Contraseña
+        %a{class:'nav-link', 'data-toggle': 'pill'} Aplicaciones y Sitios Web
+        %a{class:'nav-link', 'data-toggle': 'pill'} Correo electrónico y SMS
+        %a{class:'nav-link', 'data-toggle': 'pill'} Administrar contactos
+        %a{class:'nav-link', 'data-toggle': 'pill'} Privacidad y Seguridad
+    .details.tab-content
+      %div{class:'tab-pane fade show active', id:'v-pills-home', role:'tabpanel', 'aria-labelledby': 'v-pills-home-tab'}
+        =form_with(model: current_user, local: true, class:'form-horizontal form-edit-user') do |f|
+          .form-group
+            .row
+              .col-sm-3.col-image-profile
+                = image_tag 'https://scontent-mia3-2.cdninstagram.com/v/t51.2885-19/s150x150/13413365_703992793072121_1761280401_a.jpg?_nc_ht=scontent-mia3-2.cdninstagram.com&_nc_ohc=TBeErqXBu-4AX-37A0B&oh=204a1884c9958b98f7d69823b4ff59de&oe=5EF241BB', class: 'avatar'
+              .col-sm-9.col-text-profile
+                %p.username=current_user.username
+                %a{class:'change-photo', href:"#"}Cambiar foto de perfil
+          .form-group
+            .row
+              .col-sm-3.col-form-label
+                =f.label :name, 'Nombre'
+              .col-sm-9
+                = f.text_field :name, class:'form-control'
+          .form-group
+            .row
+              .col-sm-3.col-form-label
+                =f.label :username, 'Nombre de Usuario'
+              .col-sm-9
+                = f.text_field :username, class:'form-control'
+          .form-group
+            .row
+              .col-sm-3.col-form-label
+                =f.label :website, 'Sitio Web'
+              .col-sm-9
+                = f.text_field :website, class:'form-control'
+          .form-group
+            .row
+              .col-sm-3.col-form-label
+                =f.label :bio, 'Biografía'
+              .col-sm-9
+                = f.text_area :bio, class:'form-control'
+          .form-group
+            .row
+              .col-sm-3.col-form-label
+                =f.label :email, 'Correo Electrónico'
+              .col-sm-9
+                = f.text_field :email, class:'form-control'
+          .form-group
+            .row
+              .col-sm-3.col-form-label
+                =f.label :phone, 'Teléfono'
+              .col-sm-9
+                = f.text_field :phone, class:'form-control'
+          .form-group
+            .row
+              .col-sm-3.col-form-label
+                =f.label :gender, 'Género'
+              .col-sm-9
+                = f.text_field :gender, class:'form-control'
+          .form-group
+            .row.justify-content-center
+              .col-md-6
+                = f.submit "Guardar", class: 'btn btn-primary'
