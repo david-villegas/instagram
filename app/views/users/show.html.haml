@@ -1,10 +1,10 @@
 .user-profile
   .container
     .profile.row.justify-content-center
-      .col-md-4.avatar
+      .col-sm-4.col-md-4.avatar
         .wrapper
           = image_tag 'https://scontent-mia3-2.cdninstagram.com/v/t51.2885-19/s150x150/13413365_703992793072121_1761280401_a.jpg?_nc_ht=scontent-mia3-2.cdninstagram.com&_nc_ohc=TBeErqXBu-4AX-37A0B&oh=204a1884c9958b98f7d69823b4ff59de&oe=5EF241BB', alt: '', height: '', width: '', class: ''
-      .col-md-8.basic-info
+      .col-sm-8.col-md-8.basic-info
         .row
           %h2.username.d-none.d-sm-block dvillegas7
           %a{href:"#", class: 'edit-profile d-none d-sm-block'}
@@ -14,30 +14,34 @@
         .col.d-block.d-sm-none.mb-3
           %a{href:"#", class: 'edit-profile'}
             %button Edit Profile
-        %ul.posts.d-none.d-sm-block
+        %ul.posts.d-none.d-sm-block.d-sm-none.d-md-block
           %li
-            %span 12
+            %span 64
             Posts
           %li
-            %span 195
+            %span 429
             Followers
           %li
-            %span 345
+            %span 956
             Following
         %h2.name.d-none.d-sm-block David Villegas
         %a{href:"localhost:3000"}
 
-    .row.justify-content-around.d-block.d-sm-none.followers_count.text-center
-      %ul
+    -# Se muestra al pasar al tamaño de un dispositivo celular
+    .row.d-block.d-sm-none.followers_count
+      %ul.center-ul
         %li
-          %span 12
-          Posts
+          %span
+            %span.center-ul-data 64
+            Publicaciones
         %li
-          %span 195
-          Followers
+          %span
+            %span.center-ul-data 429
+            Seguidores
         %li
-          %span 345
-          Following
+          %span
+            %span.center-ul-data 956
+            Seguidos
 
     .row.justify-content-center.d-none.d-sm-block
       .col-md-12.user-tabs.text-center
@@ -54,6 +58,7 @@
           %i.fa.fa-tag
           TAGGED
 
+    -# Se muestra al pasar al tamaño de un dispositivo celular
     .row.d-block.d-sm-none
       .col-md-12.user-tabs-2.d-flex.justify-content-around
         = link_to new_user_session_path, class:'tab' do
