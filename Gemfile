@@ -32,6 +32,7 @@ gem 'haml-rails'
 gem 'devise', ">= 4.6.0"
 gem 'pg'
 gem 'font-awesome-rails'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

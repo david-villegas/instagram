@@ -13,11 +13,16 @@
         =form_with(model: current_user, local: true, class:'form-horizontal form-edit-user') do |f|
           .form-group
             .row
-              .col-sm-3.col-image-profile
-                = image_tag 'https://scontent-mia3-2.cdninstagram.com/v/t51.2885-19/s150x150/13413365_703992793072121_1761280401_a.jpg?_nc_ht=scontent-mia3-2.cdninstagram.com&_nc_ohc=TBeErqXBu-4AX-37A0B&oh=204a1884c9958b98f7d69823b4ff59de&oe=5EF241BB', class: 'avatar'
-              .col-sm-9.col-text-profile
-                %p.username=current_user.username
-                %a{class:'change-photo', href:"#"}Cambiar foto de perfil
+              .col-sm-3.col-image-profile.col-form-label
+                - if current_user.avatar.attached?
+                  = image_tag (current_user.avatar), class: 'avatar'
+                -else
+                  = f.label :avatar
+              .col-sm-9
+                = f.file_field :avatar, class: 'form-control-file'
+              -# .col-sm-9.col-text-profile
+              -#   %p.username=current_user.username
+              -#   %a{class:'change-photo', href:"#"}Cambiar foto de perfil
           .form-group
             .row
               .col-sm-3.col-form-label

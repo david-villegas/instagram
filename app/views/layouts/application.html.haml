@@ -23,7 +23,9 @@
             %input{type:'search', class:'form-control mr-sm-2', placeholder:'@search', 'aria-label':'Search'}
         .user-section
           %a
-            %i.fa.fa-compass
+          - if user_signed_in?
+            = link_to destroy_user_session_path, method: 'delete' do
+              %i.fa.fa-compass
           %a
             %i.fa.fa-heart
           -if user_signed_in?
