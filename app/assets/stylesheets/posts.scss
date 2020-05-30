@@ -53,3 +53,10 @@
     padding-right: 10px;
   }
 }
+
+// Responsive Views
+@media screen and (max-width: 576px) {
+  .posts{
+    margin: 0px 0px 0px;
+  }
+}
