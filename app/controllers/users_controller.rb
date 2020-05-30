@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  # before_action :set_user. only: [:edit]
+  before_action :set_user
 
 
   def show
-    @user = User.find(params[:id])
+    @posts = @user.posts.order(created_at: :desc)
   end
 
   def edit
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
 

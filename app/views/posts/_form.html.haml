@@ -1,0 +1,19 @@
+= form_with(model: post, local: true) do |f|
+  - if post.errors.any?
+    .row.justify-content-center
+      .col-md-6
+        #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+          %h4
+            = pluralize(post.errors.count, "error")
+            al intentar guardar el Post:
+          %ul
+            - post.errors.full_messages.each do |message|
+              %li= message
+          %button.close{ 'data-dismiss': 'alert' }
+            %span x
+  .form-group
+    = f.text_field :description, class: 'form-control'
+  .form-group
+    = f.file_field :image, class: 'form-control-file'
+  .form-group
+    =f.submit 'Crear Post', class: "btn btn-primary"

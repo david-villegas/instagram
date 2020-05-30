@@ -8,15 +8,15 @@
         .row
           %h2.username.d-none.d-sm-block=current_user.username
           %a{href:edit_user_path(current_user), class: 'edit-profile d-none d-sm-block'}
-            %button Editar Profile
+            %button Editar Perfil
         .col.d-block.d-sm-none
           %h2.username=current_user.username
         .col.d-block.d-sm-none.mb-3
           %a{href:edit_user_path(current_user), class: 'edit-profile'}
-            %button Edit Profile
-        %ul.posts.d-none.d-sm-block.d-sm-none.d-md-block
+            %button Editar Perfil
+        %ul.numbers-info.d-none.d-sm-block.d-sm-none.d-md-block
           %li
-            %span 64
+            %span=@posts.count
             Publicaciones
           %li
             %span 429
@@ -32,7 +32,7 @@
       %ul.center-ul
         %li
           %span
-            %span.center-ul-data 64
+            %span.center-ul-data=@posts.count
             Publicaciones
         %li
           %span
@@ -70,10 +70,7 @@
         = link_to new_user_session_path, class:'tab' do
           %i.fa.fa-tag
 
-    .row.justify-content-between.text-center
-      .col-xs-4.col-sm-4.col-md-4
-        = image_tag 'https://scontent-mia3-1.cdninstagram.com/v/t51.2885-15/e35/26865199_1930227257292656_5519976124408397824_n.jpg?_nc_ht=scontent-mia3-1.cdninstagram.com&_nc_cat=108&_nc_ohc=XHfabH2YwtcAX-tX1gM&oh=1c4641278a0ce577e14de90d867a5916&oe=5EF4D454', class: 'img-fluid gallery'
-      .col-xs-4.col-sm-4.col-md-4
-        = image_tag 'https://scontent-mia3-2.cdninstagram.com/v/t51.2885-15/e35/38428857_2034584446572031_8199103430036291584_n.jpg?_nc_ht=scontent-mia3-2.cdninstagram.com&_nc_cat=107&_nc_ohc=uINSLttnetcAX8punkh&oh=027900ea99dc29a5afff036471912a27&oe=5EF3D5DE', class: 'img-fluid gallery'
-      .col-xs-4.col-sm-4.col-md-4
-        = image_tag 'https://scontent-mia3-1.cdninstagram.com/v/t51.2885-15/e35/29716253_1837227663243912_5183683075644588032_n.jpg?_nc_ht=scontent-mia3-1.cdninstagram.com&_nc_cat=100&_nc_ohc=Wu8GfbSojzsAX9xplg0&oh=48143f2455e5931a566af9e3ca34d90c&oe=5EF53B17', class: 'img-fluid gallery'
+    .row.justify-content-around.text-center
+      - @posts.each do |post|
+        .col-xs-4.col-sm-4.col-md-4
+          = image_tag (post.image), class: 'img-fluid gallery'
