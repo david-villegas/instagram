@@ -80,4 +80,5 @@
     .row.justify-content-around.text-center
       - @posts.each do |post|
         .col-xs-4.col-sm-4.col-md-4
-          = image_tag (post.image), class: 'img-fluid gallery'
+          = link_to post_path(post) do
+            = image_tag (post.image), class: 'img-fluid gallery'

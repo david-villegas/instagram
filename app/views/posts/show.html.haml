@@ -1,0 +1,17 @@
+.container
+  .post-show.row
+    .col-md-8
+      = image_tag (@post.image), class: 'image-posts'
+    .col-md-4
+      .user-posts
+        .avatar-posts
+          -if @post.user.avatar.attached?
+            = link_to user_path(@post.user) do
+              = image_tag (@post.user.avatar)
+        = link_to @post.user.username, user_path(@post.user), class: 'username-posts'
+      .description-posts
+        = @post.description
+      - if user_signed_in?
+        .delete
+          - if @user.posts.exists?(@post.id)
+            = link_to 'Eliminar', post_path(@post), method: :delete, data: {confirm: '¿Estás seguro?'}
