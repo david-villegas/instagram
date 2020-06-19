@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_user
-  before_action :set_post, only: [:destroy]
+  before_action :set_post, only: [:show, :destroy]
 
   def new
     @post = Post.new
   end
 
   def show
-    @post = Post.find(params[:id])
+
   end
 
   def create
