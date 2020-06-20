@@ -57,7 +57,8 @@
 // Show Posts
 .post-show{
   margin: 30px 5px 0;
-  border: 1px solid #dbdbdb;  .col-md-8{
+  border: 1px solid #dbdbdb;
+  .col-md-8{
     padding: 0;
     .image-posts{
       width: 100%;
@@ -65,7 +66,8 @@
   }  .user-posts{
     display: flex;
     padding: 10px 0;
-    border-bottom: 1px solid #efefef;    .avatar-posts{
+    border-bottom: 1px solid #efefef;
+    .avatar-posts{
       width: 40px;
       height: 40px;
       margin: 8px;
@@ -95,6 +97,22 @@
   a{
     font-size: 15px;
     text-decoration: underline;
+  }
+}
+
+// Search Posts
+.user-images{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 20px;.wrapper{
+    width: 280px;
+    height: 280px;
+    margin: 15px;
+    img{
+      width: 100%;
+      border-radius: 4%;
+    }
   }
 }
 

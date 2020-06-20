@@ -10,7 +10,11 @@
               = image_tag (@post.user.avatar)
         = link_to @post.user.username, user_path(@post.user), class: 'username-posts'
       .description-posts
-        = @post.description
+        - @post.description.to_s.split(' ').each do |word|
+          - if word.start_with?('#')
+            = link_to word, search_path(query: word)
+          - else
+            = word
       - if user_signed_in?
         .delete
           - if @user.posts.exists?(@post.id)

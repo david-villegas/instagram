@@ -1,0 +1,11 @@
+.container
+  .search-page
+    - if @posts.exists?
+      %h1 Top Posts
+    - else
+      %h1.text-center Ooops! No se encontraron resultados ...
+
+  .user-images
+    - @posts.each do |post|
+      .wrapper
+        = image_tag (post.image), class: ''
